@@ -1,0 +1,6 @@
+CREATE TABLE users (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(255), 
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255)
+);

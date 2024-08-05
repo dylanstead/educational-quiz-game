@@ -10,7 +10,7 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
     };
 
     try {
-        const response = await fetch('http://localhost:YOUR_PORT/users/register', {
+        const response = await fetch('http://localhost:3000/users/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

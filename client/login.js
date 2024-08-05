@@ -5,7 +5,7 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('http://localhost:YOUR_PORT/users/login', {
+        const response = await fetch('http://localhost:3000/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -15,7 +15,8 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
 
         if (response.ok) {
             alert('Login successful!');
-            // Redirect to the dashboard or home page after successful login
+            // Redirect to the home page after successful login
+            window.location.href = 'HomePage/index.html';
         } else {
             const errorData = await response.json();
             alert(`Error: ${errorData.error}`);

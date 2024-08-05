@@ -5,8 +5,8 @@ const logger = require("./logger");
 const userRouter = require("./routers/users");
 
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 app.use(logger);
 app.use("/users", userRouter);
 

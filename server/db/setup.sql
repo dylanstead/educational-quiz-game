@@ -14,11 +14,11 @@ CREATE TABLE userEntry (
     date DATE NOT NULL,     
     contents VARCHAR (500),
     id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES userDetail(user_id) 
+    FOREIGN KEY (id) REFERENCES userDetail(id) 
 );
 CREATE TABLE userRegistration ( 
     registration_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     email VARCHAR(255) NOT NULL CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'),
     id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES userDetail(user_id) 
+    FOREIGN KEY (id) REFERENCES userDetail(id) 
 );

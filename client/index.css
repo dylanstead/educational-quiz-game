@@ -17,6 +17,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
+    background: url('./images/Background.jpg') no-repeat center center / cover;
+    z-index: -1;
+}
+
+.container {
+    background-color: hsla(310, 84%, 47%, 0);
+    padding: 20px;
+    margin: 50px auto;
+=======
     background: url('./images/background1.png') no-repeat center center / cover;
     z-index: -1;
 }
@@ -26,6 +36,7 @@
     background-color: hsla(55, 85%, 48%, 0);
     padding: 40px;
     margin: 100px auto;
+>>>>>>> development
     border-radius: 25px;
     max-width: 1000px;
     display: flex;
@@ -34,6 +45,9 @@
     font-family: 'Pacifico',cursive;
     font-size: 50px;
     color:rgb(234, 5, 62)
+<<<<<<< HEAD
+  }
+=======
   }
 
 .homepage {
@@ -61,3 +75,4 @@
   
 
  
+>>>>>>> development

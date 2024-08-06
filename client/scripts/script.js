@@ -1,29 +1,11 @@
-<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", async () => {
-  let BASE_URL;
-  
-  try {
-    const response = await fetch('/config');
-    const config = await response.json();
-    BASE_URL = config.apiUrl;
-  } catch (error) {
-    console.error("Failed to load configuration:", error);
-    BASE_URL = "http://localhost:3000";  
-  }
+  // Set the base URL directly since there's no config file
+  const BASE_URL = "http://localhost:3000";
 
- 
-=======
-document.addEventListener("DOMContentLoaded", () => {
-  const port = 3000;  
-
-  // Handle registration form submission
->>>>>>> development
   const registerForm = document.querySelector("#register-modal form");
-
-  registerForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-<<<<<<< HEAD
+  if (registerForm) {
+    registerForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
       const formData = new FormData(registerForm);
       const data = Object.fromEntries(formData.entries());
 
@@ -35,45 +17,30 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           body: JSON.stringify(data),
         });
-=======
-    const formData = new FormData(registerForm);
-    const data = Object.fromEntries(formData.entries());
 
-    try {
-      const response = await fetch(`http://localhost:${port}/users/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
->>>>>>> development
-
-      const result = await response.json();
-      if (response.ok) {
-        alert("Registration successful!");
-        const registerModal = new bootstrap.Modal(document.getElementById("register-modal"));
-        registerModal.hide();
-        registerForm.reset();
-      } else {
-        alert(`Registration failed: ${result.error}`);
+        const result = await response.json();
+        if (response.ok) {
+          alert("Registration successful!");
+          const registerModal = new bootstrap.Modal(document.getElementById("register-modal"));
+          registerModal.hide();
+          registerForm.reset();
+        } else {
+          alert(`Registration failed: ${result.error}`);
+        }
+      } catch (error) {
+        console.error("Error during registration:", error);
+        alert("Registration failed. Please try again.");
       }
-    } catch (error) {
-      console.error("Error during registration:", error);
-      alert("Registration failed. Please try again.");
-    }
-  });
+    });
+  }
 
-  // Handle login form submission
   const loginForm = document.querySelector("#login-modal form");
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(loginForm);
+      const data = Object.fromEntries(formData.entries());
 
-  loginForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(loginForm);
-    const data = Object.fromEntries(formData.entries());
-
-<<<<<<< HEAD
       try {
         const response = await fetch(`${BASE_URL}/users/login`, {
           method: "POST",
@@ -82,44 +49,31 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           body: JSON.stringify(data),
         });
-=======
-    try {
-      const response = await fetch(`http://localhost:${port}/users/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
->>>>>>> development
 
-      const result = await response.json();
-      if (response.ok) {
-        alert("Login successful!");
-        const loginModal = new bootstrap.Modal(document.getElementById("login-modal"));
-        loginModal.hide();
-        loginForm.reset();
-        window.location.href = "gamepage.html"; // Redirect after successful login
-      } else {
-        alert(`Login failed: ${result.error}`);
+        const result = await response.json();
+        if (response.ok) {
+          alert("Login successful!");
+          const loginModal = new bootstrap.Modal(document.getElementById("login-modal"));
+          loginModal.hide();
+          loginForm.reset();
+          window.location.href = "gamepage.html";
+        } else {
+          alert(`Login failed: ${result.error}`);
+        }
+      } catch (error) {
+        console.error("Error during login:", error);
+        alert("Login failed. Please try again.");
       }
-    } catch (error) {
-      console.error("Error during login:", error);
-      alert("Login failed. Please try again.");
-    }
-  });
+    });
+  }
 
-  // Redirect from gamepage to quizpage when the Flag Quiz button is clicked
-  const flagQuizButton = document.getElementById('flag-quiz-btn');
-
+  // Select the Flag Quiz button by using the icon class 'bi-flag-fill'
+  const flagQuizButton = document.querySelector('.bi-flag-fill').parentNode;
   if (flagQuizButton) {
-    console.log('Flag Quiz Button Found:', flagQuizButton);
     flagQuizButton.addEventListener('click', () => {
-      console.log('Flag Quiz Button Clicked');
-      window.location.href = "quizpage.html";
+      window.location.href = "quizpage.html"; // Redirect to quizpage.html
     });
   } else {
     console.error('Flag Quiz Button Not Found');
   }
 });
-

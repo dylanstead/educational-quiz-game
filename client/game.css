@@ -45,10 +45,11 @@
   }
 
   .home-content h1 {
-    font-size: 78px;
+    font-size: 50px;
     font-weight: 700;
-    color: #fff;
-    background-color:#c40094;
+    color: #0d0d0d;
+    background-color:#10f3e8;
+    border: #fff;
     margin-top: 90px;
     margin-bottom: 40px;
     text-shadow: 0 0 10px rgba(236, 6, 144, 0.3);

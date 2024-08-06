@@ -67,18 +67,18 @@
 .small-buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .small-buttons .btn {
   flex: 1;
-  max-width: 45%;
+  max-width: 100%;
 }
 
 .small-buttons .btn:first-child {
-  margin-right: auto;
+  margin-right: 90px;
 }
 
 .small-buttons .btn:last-child {
-  margin-left: auto;
+  margin-left: 90px;
 }

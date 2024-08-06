@@ -22,3 +22,9 @@ CREATE TABLE userRegistration (
     id INT NOT NULL,
     FOREIGN KEY (id) REFERENCES userDetail(id) 
 );
+CREATE TABLE userScore (
+    score_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id INT NOT NULL,
+    score VARCHAR(2) NOT NULL,
+    FOREIGN KEY (id) REFERENCES userDetail(id)
+)

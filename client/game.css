@@ -44,20 +44,23 @@ body, html {
 }
 
 .card-title {
-  font-size: 36px;
-  font-weight: 700;
-  color: #0d0d0d;
-  margin-bottom: 20px;
+  font-family: 'Piedra';
+  font-size: 2.5rem;
+  color: #0b0b0b;
+  background-color: transparent;
+  border-bottom: none;
+  margin-bottom: 10px;
 }
 
 .start-btn {
   width: 190px;
   height: 55px;
   margin: 10px;
-  background-color: #c40094;
+  background-color: #ffffff;
   border: none;
   border-radius: 6px;
-  color: #fff;
+  font-family: 'Wellfleet';
+  color: #000;
   font-size: 18px;
   font-weight: 600;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -65,5 +68,5 @@ body, html {
 }
 
 .start-btn:hover {
-  background-color: #0056b3;
+  background-color: #c40094;
 }

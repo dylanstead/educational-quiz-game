@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     BASE_URL = "http://localhost:3000";  
   }
 
-  // Now use BASE_URL in your fetch requests
+ 
   const registerForm = document.querySelector("#register-modal form");
 
   if (registerForm) {

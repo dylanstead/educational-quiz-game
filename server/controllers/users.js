@@ -16,6 +16,7 @@ async function login(req, res) {
     res.status(401).json({error: err.message});
   }
 }
+
 async function register(req, res) {
   try {
     const data = req.body;

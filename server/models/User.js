@@ -8,7 +8,7 @@ class User {
   }
   static async getUsername(username) {
     try {
-      const response = await db.query("SELECT * FROM userdetail WHERE LOWER(username) = LOWER($1);", [username]);
+      const response = await db.query("SELECT * FROM userDetail WHERE LOWER(username) = LOWER($1);", [username]);
       if (response.rows.length != 1) {
         throw new Error("Unable to locate user");
       }

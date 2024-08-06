@@ -12,28 +12,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 
+  
+  .h-font{
+    font-family: 'Finger Paint';
+  }
+  
   .background2 {
     position: fixed;
     top: 0;
     left: 0;
-    margin-top: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: url('./images/background2.png') no-repeat center center / cover;
     z-index: -1;
+  }
+  
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background color */
   }
 
   .card {
     width: 25rem;
     border: 1px solid #ddd;
     border-radius: 0.25rem;
-    background-color: #fff;
+    background-color: #f0e10a;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    text-align: center;
+}
+
+.card-header {
+  font-family: 'Piedra';
+  font-size: 2.5rem;
+  color: #000;
+  background-color: transparent;
+  border-bottom: none;
+  margin-bottom: 10px;
 }
 
 .card-img-top {
@@ -51,34 +68,20 @@
 }
 
 .btn {
-    margin-bottom: 0.5rem; /* Space between buttons */
+    margin-bottom: 0.5rem; 
     width: 100%;
-    background: #c40094;
+    background: #fff;
+    font-size: 1.8rem;
+    color:#000;
+    font-family: 'Flavors';
 }
 
-.card {
-  margin: auto;
-}
 
 .card-body {
   text-align: center;
 }
 
-.small-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
+.btn:hover {
+  background-color: #c40094;
 }
 
-.small-buttons .btn {
-  flex: 1;
-  max-width: 100%;
-}
-
-.small-buttons .btn:first-child {
-  margin-right: 90px;
-}
-
-.small-buttons .btn:last-child {
-  margin-left: 90px;
-}

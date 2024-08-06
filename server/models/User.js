@@ -7,18 +7,26 @@ class User {
     this.password = password;
   }
   static async getUsername(username) {
-    const response = await db.query("SELECT * FROM userDetail WHERE LOWER(username)=LOWER($1);", [username]);
-    if (response.rows.lenght != 1) {
-      throw new Error("Unable to locate user");
+    try {
+      const response = await db.query("SELECT * FROM userDetail WHERE LOWER(username) = LOWER($1);", [username]);
+      if (response.rows.length != 1) {
+        throw new Error("Unable to locate user");
+      }
+      return new User(response.rows[0]);
+    } catch (err) {
+      throw new Error(err.message);
     }
-    return new User(response.rows[0]);
   }
   static async create(data) {
     const {username, email, password} = data;
-    let detailResponse = await db.query("INSERT INTO userDetail (username, email, password) VALUES ($1, $2) RETURNING id", [username, password])
-    const newId = detailResponse.rows[0].id
-    let registerResponse = await db.query("INSERT INTO userRegistration (email, id) VALUES ($1, $2) RETURNING id;", [email, newId])
-    return new User(registerResponse)
+    try {
+      const detailResponse = await db.query("INSERT INTO userdetail (username, password) VALUES ($1, $2) RETURNING id", [username, password]);
+      const newId = detailResponse.rows[0].id;
+      const registerResponse = await db.query("INSERT INTO userregistration (email, id) VALUES ($1, $2) RETURNING id;", [email, newId]);
+      return new User({username, email, password});
+    } catch (err) {
+      throw new Error(err.message);
+    }
   }
 }
 

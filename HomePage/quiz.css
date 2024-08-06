@@ -55,3 +55,30 @@
     width: 100%;
     background: #c40094;
 }
+
+.card {
+  margin: auto;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.small-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.small-buttons .btn {
+  flex: 1;
+  max-width: 45%;
+}
+
+.small-buttons .btn:first-child {
+  margin-right: auto;
+}
+
+.small-buttons .btn:last-child {
+  margin-left: auto;
+}

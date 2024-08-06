@@ -3,18 +3,22 @@ let currentCountry = null;
 let score = 0;
 let round = 0;
 const totalRounds = 5;
+
 document.addEventListener("DOMContentLoaded", () => {
   fetchCountries();
 });
+
 async function fetchCountries() {
   const response = await fetch("https://restcountries.com/v3.1/all");
   const data = await response.json();
   countries = data;
   startGame();
 }
+
 function startGame() {
   nextRound();
 }
+
 function nextRound() {
   if (round < totalRounds) {
     round++;
@@ -23,6 +27,7 @@ function nextRound() {
     displayScore();
   }
 }
+
 function displayFlagAndAnswers() {
   const region = "Europe"; // You can change this to any region you want to use
   const filteredCountries = countries.filter(
@@ -30,50 +35,55 @@ function displayFlagAndAnswers() {
   );
   currentCountry =
     filteredCountries[Math.floor(Math.random() * filteredCountries.length)];
-  document.getElementById("flag").src = currentCountry.flags.svg;
-  const answersContainer = document.getElementById("answers-container");
-  answersContainer.innerHTML = "";
-  const correctAnswerButton = createAnswerButton(currentCountry.name.common);
-  answersContainer.appendChild(correctAnswerButton);
+
+  // Update the flag image
+  const flagImage = document.querySelector(".card-img-top");
+  flagImage.src = currentCountry.flags.svg;
+  flagImage.alt = `Flag of ${currentCountry.name.common}`;
+
+  // Get all answer buttons
+  const answerButtons = document.querySelectorAll(".card-body .btn-primary");
+
+  // Create an array with the correct answer and three random incorrect answers
   const incorrectAnswers = filteredCountries
     .filter((country) => country.name.common !== currentCountry.name.common)
     .sort(() => 0.5 - Math.random())
     .slice(0, 3);
-  incorrectAnswers.forEach((incorrectCountry) => {
-    const button = createAnswerButton(incorrectCountry.name.common);
-    answersContainer.appendChild(button);
+
+  const allAnswers = [currentCountry, ...incorrectAnswers].sort(
+    () => 0.5 - Math.random()
+  );
+
+  // Assign answers to buttons
+  answerButtons.forEach((button, index) => {
+    button.textContent = allAnswers[index].name.common;
+    button.onclick = () => checkAnswer(button);
   });
-  // Shuffle the buttons
-  for (let i = answersContainer.children.length; i >= 0; i--) {
-    answersContainer.appendChild(
-      answersContainer.children[(Math.random() * i) | 0]
-    );
-  }
 }
-function createAnswerButton(answer) {
-  const button = document.createElement("button");
-  button.textContent = answer;
-  button.onclick = checkAnswer;
-  return button;
-}
-function checkAnswer(event) {
-  const selectedAnswer = event.target.textContent;
+
+function checkAnswer(selectedButton) {
+  const selectedAnswer = selectedButton.textContent;
   const correctAnswer = currentCountry.name.common;
+
   if (selectedAnswer === correctAnswer) {
-    event.target.classList.add("correct");
+    selectedButton.classList.add("correct");
     score++;
   } else {
-    event.target.classList.add("incorrect");
+    selectedButton.classList.add("incorrect");
     document
-      .querySelector(`button:contains(${correctAnswer})`)
+      .querySelector(`.btn-primary:contains(${correctAnswer})`)
       .classList.add("correct");
   }
+
   setTimeout(nextRound, 1000); // Wait a second before going to the next round
 }
+
 function displayScore() {
-  document.getElementById("quiz-container").style.display = "none";
-  document.getElementById("score-container").style.display = "block";
-  document.getElementById(
-    "score"
-  ).textContent = `Your score: ${score} / ${totalRounds}`;
+  const card = document.querySelector(".card");
+  card.innerHTML = `
+    <div class="card-body">
+      <h5 class="card-title">Quiz Completed</h5>
+      <p class="card-text">Your score: ${score} / ${totalRounds}</p>
+    </div>
+  `;
 }

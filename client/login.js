@@ -1,28 +1,35 @@
-document.getElementById('loginForm').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    try {
-        const response = await fetch('http://localhost:3000/users/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
+document.addEventListener("DOMContentLoaded", () => {
+    const registerForm = document.getElementById("register-form");
+  
+    registerForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+  
+      const formData = new FormData(registerForm);
+      const data = Object.fromEntries(formData.entries());
+  
+      try {
+        const response = await fetch("http://localhost:3000/users/register", {  
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         });
-
+  
+        const result = await response.json();
         if (response.ok) {
-            alert('Login successful!');
-            // Redirect to the home page after successful login
-            window.location.href = 'HomePage/index.html';
+          alert("Registration successful!");
+          const registerModal = new bootstrap.Modal(document.getElementById("register-modal"));
+          registerModal.hide();
+          registerForm.reset();
         } else {
-            const errorData = await response.json();
-            alert(`Error: ${errorData.error}`);
+          alert(`Registration failed: ${result.error}`);
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred during login.');
-    }
-});
+      } catch (error) {
+        console.error("Error during registration:", error);
+        alert("Registration failed. Please try again.");
+      }
+    });
+  });
+  
+  

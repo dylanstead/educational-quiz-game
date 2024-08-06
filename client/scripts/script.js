@@ -1,17 +1,27 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Handle registration form submission
+document.addEventListener("DOMContentLoaded", async () => {
+  let BASE_URL;
+  
+  try {
+    const response = await fetch('/config');
+    const config = await response.json();
+    BASE_URL = config.apiUrl;
+  } catch (error) {
+    console.error("Failed to load configuration:", error);
+    BASE_URL = "http://localhost:3000";  
+  }
+
+ 
   const registerForm = document.querySelector("#register-modal form");
 
   if (registerForm) {
     registerForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      // Collect form data
       const formData = new FormData(registerForm);
       const data = Object.fromEntries(formData.entries());
 
       try {
-        const response = await fetch("http://localhost:3000/users/register", {
+        const response = await fetch(`${BASE_URL}/users/register`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -46,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = Object.fromEntries(formData.entries());
 
       try {
-        const response = await fetch("http://localhost:3000/users/login", {
+        const response = await fetch(`${BASE_URL}/users/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

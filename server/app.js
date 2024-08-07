@@ -44,21 +44,5 @@ app.use(
 app.use(logger);
 app.use("/users", userRouter);
 app.use("/scores", scoreRouter);
-<<<<<<< HEAD
-
-const allowedOrigins = ["http://127.0.0.1:5500", "https://educational-quiz-game-1.onrender.com/"];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
-
-=======
->>>>>>> development
 
 module.exports = app;

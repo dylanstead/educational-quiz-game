@@ -1,3 +1,4 @@
+// flaggame.js
 let countries = [];
 let currentCountry = null;
 let score = 0;
@@ -94,7 +95,7 @@ function displayScore() {
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
-    window.location.href = "resultspage.html";
+    window.location.href = "resultspage.html"; // Redirect to results page
   })
   .catch((error) => {
     console.error('Error:', error);

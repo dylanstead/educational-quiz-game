@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log("Response result:", result); // Log response result
 
         if (response.ok) {
-          window.location.href = "gamepage.html";
+          window.location.href = "client/gamepage.html";
         } else {
           // Handle login errors
           console.error(`Login failed: ${result.error || result.message}`);
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const flagQuizButton = document.querySelector(".bi-flag-fill")?.parentNode;
   if (flagQuizButton) {
     flagQuizButton.addEventListener("click", () => {
-      window.location.href = "quizpage.html"; // Redirect to quiz page
+      window.location.href = "quizpage.html"; 
     });
   } else {
     console.error("Flag Quiz Button Not Found");

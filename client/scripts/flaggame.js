@@ -1,3 +1,4 @@
+// flaggame.js
 let countries = [];
 let currentCountry = null;
 let score = 0;

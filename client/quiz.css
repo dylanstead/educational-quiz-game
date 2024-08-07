@@ -53,11 +53,18 @@
   margin-bottom: 10px;
 }
 
+.card-img-container {
+  width: 80%;
+  margin: 0 auto;
+  border: 4px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
 .card-img-top {
     width: 100%;
-    border-bottom: 1px solid #ddd;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
+    height: auto;
 }
 
 .card-body {
@@ -69,19 +76,16 @@
 
 .btn {
     margin-bottom: 0.5rem; 
-    width: 100%;
+    width: 85%;
     background: #fff;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     color:#000;
-    font-family: 'Flavors';
-}
-
-
-.card-body {
-  text-align: center;
+    font-family: 'Finger Paint';
+    font-weight: 300;
+    font-style: bold;
 }
 
 .btn:hover {
-  background-color: #c40094;
+  background-color: #00c4b4;
 }
 

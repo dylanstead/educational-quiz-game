@@ -1,4 +1,3 @@
 .env
 node_modules
 pnpm-lock.yaml
-client/scripts/config.js

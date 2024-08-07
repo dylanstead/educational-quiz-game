@@ -15,6 +15,18 @@ class Score {
       throw new Error(err.message);
     }
   }
+
+  static async getLatestScore(userId) {
+    try {
+      const response = await db.query("SELECT score FROM userscore WHERE id = $1 ORDER BY score_id DESC LIMIT 1", [userId])
+      if(response.rows.length === 0) {
+        throw new Error('No score found for this user')
+      }
+      return response.rows[0]
+    }catch(err) {
+      throw new Error(err.message)
+    }
+  }
 }
 
 module.exports = Score;

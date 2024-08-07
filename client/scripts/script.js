@@ -1,17 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Handle registration form submission
-  const registerForm = document.querySelector("#register-modal form");
+document.addEventListener("DOMContentLoaded", async () => {
+  // Set the base URL directly since there's no config file
+  const BASE_URL = "http://localhost:3000";
 
+  const registerForm = document.querySelector("#register-modal form");
   if (registerForm) {
     registerForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-
-      // Collect form data
       const formData = new FormData(registerForm);
       const data = Object.fromEntries(formData.entries());
 
       try {
-        const response = await fetch("http://localhost:3000/users/register", {
+        const response = await fetch(`${BASE_URL}/users/register`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -21,32 +20,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const result = await response.json();
         if (response.ok) {
-          alert("Registration successful!");
-          const registerModal = new bootstrap.Modal(document.getElementById("register-modal"));
-          registerModal.hide();
-          registerForm.reset();
+          // Redirect to login page after successful registration
+          window.location.href = "login.html";
         } else {
-          alert(`Registration failed: ${result.error}`);
+          // Optionally handle errors in the UI
+          console.error(`Registration failed: ${result.error}`);
         }
       } catch (error) {
         console.error("Error during registration:", error);
-        alert("Registration failed. Please try again.");
       }
     });
   }
 
-  // Handle login form submission
   const loginForm = document.querySelector("#login-modal form");
-
   if (loginForm) {
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-
       const formData = new FormData(loginForm);
       const data = Object.fromEntries(formData.entries());
 
       try {
-        const response = await fetch("http://localhost:3000/users/login", {
+        const response = await fetch(`${BASE_URL}/users/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -56,31 +50,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const result = await response.json();
         if (response.ok) {
-          alert("Login successful!");
-          const loginModal = new bootstrap.Modal(document.getElementById("login-modal"));
-          loginModal.hide();
-          loginForm.reset();
+          // Redirect to game page after successful login
           window.location.href = "gamepage.html";
         } else {
-          alert(`Login failed: ${result.error}`);
+          // Optionally handle errors in the UI
+          console.error(`Login failed: ${result.error}`);
         }
       } catch (error) {
         console.error("Error during login:", error);
-        alert("Login failed. Please try again.");
       }
     });
   }
 
-  // Redirect from gamepage to quizpage when the Flag Quiz button is clicked
-  const flagQuizButton = document.querySelector('.start-btn i.bi-flag-fill').parentElement;
-
+  // Select the Flag Quiz button by using the icon class 'bi-flag-fill'
+  const flagQuizButton = document.querySelector('.bi-flag-fill').parentNode;
   if (flagQuizButton) {
-    console.log('Flag Quiz Button Found:', flagQuizButton);
     flagQuizButton.addEventListener('click', () => {
-      console.log('Flag Quiz Button Clicked');
-      window.location.href = "quizpage.html";
+      window.location.href = "quizpage.html"; // Redirect to quizpage.html
     });
   } else {
     console.error('Flag Quiz Button Not Found');
   }
 });
+

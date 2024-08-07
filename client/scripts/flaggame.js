@@ -23,7 +23,6 @@ function startGame() {
 function nextRound() {
   if (round < totalRounds) {
     round++;
-    console.log(round);
     firstAttempt = true;
     displayRoundCount();
     displayFlagAndAnswers();
@@ -93,6 +92,7 @@ function checkAnswer(selectedButton) {
 }
 
 function displayScore() {
+  // Store the score and total rounds in localStorage
   localStorage.setItem("quizScore", score);
   localStorage.setItem("totalRounds", totalRounds);
 

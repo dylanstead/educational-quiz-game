@@ -20,16 +20,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const result = await response.json();
         if (response.ok) {
-          alert("Registration successful!");
-          const registerModal = new bootstrap.Modal(document.getElementById("register-modal"));
-          registerModal.hide();
-          registerForm.reset();
+          // Redirect to login page after successful registration
+          window.location.href = "login.html";
         } else {
-          alert(`Registration failed: ${result.error}`);
+          // Optionally handle errors in the UI
+          console.error(`Registration failed: ${result.error}`);
         }
       } catch (error) {
         console.error("Error during registration:", error);
-        alert("Registration failed. Please try again.");
       }
     });
   }
@@ -52,17 +50,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const result = await response.json();
         if (response.ok) {
-          alert("Login successful!");
-          const loginModal = new bootstrap.Modal(document.getElementById("login-modal"));
-          loginModal.hide();
-          loginForm.reset();
+          // Redirect to game page after successful login
           window.location.href = "gamepage.html";
         } else {
-          alert(`Login failed: ${result.error}`);
+          // Optionally handle errors in the UI
+          console.error(`Login failed: ${result.error}`);
         }
       } catch (error) {
         console.error("Error during login:", error);
-        alert("Login failed. Please try again.");
       }
     });
   }
@@ -77,3 +72,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error('Flag Quiz Button Not Found');
   }
 });
+

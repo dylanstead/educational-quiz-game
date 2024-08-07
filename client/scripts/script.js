@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const BASE_URL = "http://localhost:3000";
+  const BASE_URL = config.API_URL;
 
   // Registration Form Handling
   const registerForm = document.querySelector("#register-modal form");
@@ -29,7 +29,9 @@ document.addEventListener("DOMContentLoaded", async () => {
           alert("Registration Successful!");
         } else {
           // Handle registration errors
-          console.error(`Registration failed: ${result.error || result.message}`);
+          console.error(
+            `Registration failed: ${result.error || result.message}`
+          );
           alert(`Registration failed: ${result.error || result.message}`);
         }
       } catch (error) {
@@ -58,6 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
+          credentials: "include",
         });
 
         console.log("Response status:", response.status); // Log response status
@@ -82,12 +85,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Flag Quiz Button Handling (unchanged)
-  const flagQuizButton = document.querySelector('.bi-flag-fill')?.parentNode;
+  const flagQuizButton = document.querySelector(".bi-flag-fill")?.parentNode;
   if (flagQuizButton) {
-    flagQuizButton.addEventListener('click', () => {
+    flagQuizButton.addEventListener("click", () => {
       window.location.href = "quizpage.html"; // Redirect to quiz page
     });
   } else {
-    console.error('Flag Quiz Button Not Found');
+    console.error("Flag Quiz Button Not Found");
   }
 });

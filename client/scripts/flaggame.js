@@ -24,6 +24,7 @@ function startGame() {
 function nextRound() {
   if (round < totalRounds) {
     round++;
+    console.log(round);
     firstAttempt = true;
     displayRoundCount();
     displayFlagAndAnswers();

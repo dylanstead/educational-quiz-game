@@ -3,40 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CountryQuiz Kids - Results</title>
+    <title>Quiz Results</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Finger+Paint&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chela+One&family=Finger+Paint&family=Flavors&family=Lobster&family=Pacifico&family=Piedra&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Yuji+Mai&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./results.css">
 </head>
 <body>
-    <div class="background"></div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning p-2 text-dark bg-opacity-75 px-lg-3 py-lg-2 shadow-sm sticky-top">
+    <div class="background2"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning p-2 text-dark bg-opacity-75 shadow-sm fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand me-5 ml-4 fw-bold fs-3 h-font" href="#">
-            <img src="./images/LOGO.svg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
-            CountryQuiz Kids
-          </a>
-      </nav>
-
-    <div class="container my-5">
-        <div class="card results-card mx-auto">
-            <div class="card-body text-center">
-                <h3 class="card-title">Quiz Results</h3>
-                <div id="chart-container">
-                    <!-- Placeholder for pie chart -->
-                </div>
-                <p class="score-label">Your Score</p>
-                <p class="score-value">3 out of 5</p>
-                <div class="button-container">
-                    <a href="#" class="btn btn-primary">Try Again</a>
-                    <a href="#" class="btn btn-primary">Back to Home</a>
-                </div>
+            <a class="navbar-brand me-5 ml-4 fw-bold fs-3 h-font" href="#">
+                <img src="./images/LOGO.svg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+                CountryQuiz Kids
+            </a>
+        </div>
+    </nav>
+    <div class="card result-card">
+        <h5 class="card-header text-center">Quiz Results</h5>
+        <div class="card-body text-center">
+            <div class="character-animation">
+                <iframe src="https://giphy.com/embed/3ornjJ69t2jJ0AqXRe" alt="Dancing Character" class="dancing-character"><</iframe>
             </div>
+            <p class="score-text">Your Score</p>
+            <p class="score-value"></p>
+            <a href="#" class="btn btn-primary">Try Again</a>
+            <a href="#" class="btn btn-primary">Back to Home</a>
         </div>
     </div>
+
+                  <script src="./scripts/results.js"></script>
     <script src="./scripts/config.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

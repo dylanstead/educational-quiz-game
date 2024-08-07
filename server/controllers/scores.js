@@ -10,4 +10,15 @@ async function addNew(req, res) {
   }
 }
 
-module.exports = {addNew};
+async function getLatestScore(req, res) {
+  try {
+    const userId = req.params.id;
+    const result = await Score.getLatestScore(userId)
+    res.status(200).send(result);
+  }catch(err) {
+    res.status(400).json({error: err.message})
+  }
+}
+
+
+module.exports = {addNew, getLatestScore};

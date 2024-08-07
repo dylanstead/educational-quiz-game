@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS userResgistration;
+DROP TABLE IF EXISTS userRegistration;
 DROP TABLE IF EXISTS userEntry;
 DROP TABLE IF EXISTS userDetail;
 

@@ -3,6 +3,7 @@ let currentCountry = null;
 let score = 0;
 let round = 0;
 const totalRounds = 5;
+let firstAttempt = true; // New variable to track if the first attempt is being made
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchCountries();
@@ -22,6 +23,7 @@ function startGame() {
 function nextRound() {
   if (round < totalRounds) {
     round++;
+    firstAttempt = true; // Reset for each new round
     displayFlagAndAnswers();
   } else {
     displayScore();
@@ -58,6 +60,7 @@ function displayFlagAndAnswers() {
   answerButtons.forEach((button, index) => {
     button.textContent = allAnswers[index].name.common;
     button.onclick = () => checkAnswer(button);
+    button.classList.remove("correct", "incorrect"); // Clear previous round classes
   });
 }
 
@@ -67,15 +70,14 @@ function checkAnswer(selectedButton) {
 
   if (selectedAnswer === correctAnswer) {
     selectedButton.classList.add("correct");
-    score++;
+    if (firstAttempt) {
+      score++;
+    }
+    setTimeout(nextRound, 1000); // Wait a second before going to the next round
   } else {
     selectedButton.classList.add("incorrect");
-    document
-      .querySelector(`.btn-primary:contains(${correctAnswer})`)
-      .classList.add("correct");
+    firstAttempt = false; // Mark first attempt as false on incorrect answer
   }
-
-  setTimeout(nextRound, 1000); // Wait a second before going to the next round
 }
 
 function displayScore() {

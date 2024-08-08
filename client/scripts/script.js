@@ -1,17 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const BASE_URL = config.API_URL;
 
-  // Function to display the username in the navigation bar
-  function displayUsername() {
-    const username = localStorage.getItem("username");
-    if (username) {
-      document.getElementById("navbar-username").innerText = username;
-    }
-  }
-
-  // Call displayUsername to ensure username is displayed on page load
-  displayUsername();
-
   // Registration Form Handling
   const registerForm = document.querySelector("#register-modal form");
   if (registerForm) {

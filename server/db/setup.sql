@@ -19,5 +19,5 @@ CREATE TABLE userScore (
     score_id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
     score INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id)
-)
+    FOREIGN KEY (user_id) REFERENCES userDetail(id)
+))

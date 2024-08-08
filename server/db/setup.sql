@@ -16,8 +16,8 @@ CREATE TABLE userRegistration (
     FOREIGN KEY (id) REFERENCES userDetail(id) 
 );
 CREATE TABLE userScore (
-    score_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    id INT NOT NULL,
-    score VARCHAR(2) NOT NULL,
-    FOREIGN KEY (id) REFERENCES userDetail(id)
-)
+    score_id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    score INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES userDetail(id)
+))

@@ -1,16 +1,16 @@
 const db = require("../db/connect");
 
 class Score {
-  constructor({id, score}) {
-    this.id = id;
+  constructor({user_id, score}) {
+    this.user_id = user_id;
     this.score = score;
   }
   static async sendScore(data) {
-    const {id, score} = data;
+    const {user_id, score} = data;
     try {
-      const response = await db.query("INSERT INTO userScore (score) VALUES ($1) RETURNING id", [score]);
-      const newScore = response.rows[0].id
-      return new Score({id, score})
+      const response = await db.query("INSERT INTO userScore (user_id, score) VALUES ($1, $2) RETURNING score_id", [user_id, score]);
+      const newScore = response.rows[0].score_id;
+      return new Score({user_id, score})
     } catch (err) {
       throw new Error(err.message);
     }

@@ -1,66 +1,61 @@
-
-
-
-.h-font{
-    font-family: 'Finger Paint';
+.h-font {
+  font-family: "Finger Paint";
 }
 
-
-
 .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin-top: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url('./images/background2.png') no-repeat center center / cover;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("./images/background2.png") no-repeat center center / cover;
+  z-index: -1;
 }
 
 .container {
-    background-color: hsla(310, 84%, 47%, 0);
-    padding: 20px;
-    margin: 50px auto;
-    border-radius: 25px;
-    max-width: 1000px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Pacifico',cursive;
-    font-size: 50px;
-    color:rgb(234, 5, 62)
-  }
+  background-color: hsla(310, 84%, 47%, 0);
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 25px;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Pacifico", cursive;
+  font-size: 50px;
+  color: rgb(234, 5, 62);
+}
 
-  .custom-card {
-    background-color: hsl(56, 92%, 49%); 
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 0.25rem;
-    max-width: 600px; 
-    margin: 100px auto; 
-    padding: 20px;
-    font-family: 'Flavors', cursive;
-  }
-  
-  .custom-card .card-title {
-    font-family: 'Piedra', cursive; 
-    font-size: 2rem; 
-    color: #000; 
-    margin-bottom: 10px; 
-  }
-  
-  .custom-card .card-text {
-    font-family: 'Finger Paint', cursive; 
-    font-size: 1.8rem; 
-    color: #000; 
-  }
-  
-  .fun-image {
-    width: 150px;
-    height: auto;
-    margin: 10px;
-  }
+.custom-card {
+  background-color: hsl(56, 92%, 49%);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 20px;
+  font-family: "Flavors", cursive;
+}
+
+.custom-card .card-title {
+  font-family: "Piedra", cursive;
+  font-size: 2rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.custom-card .card-text {
+  font-family: "Finger Paint", cursive;
+  font-size: 1.8rem;
+  color: #000;
+}
+
+.fun-image {
+  width: 150px;
+  height: auto;
+  margin: 10px;
+}

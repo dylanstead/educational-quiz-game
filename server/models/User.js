@@ -11,7 +11,7 @@ class User {
     try {
       const response = await db.query("SELECT * FROM userDetail WHERE LOWER(username) = LOWER($1);", [username]);
       if (response.rows.length === 0) {
-        return null; // No user found
+        return null;
       }
       return new User(response.rows[0]);
     } catch (err) {

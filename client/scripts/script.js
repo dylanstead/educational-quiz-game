@@ -5,9 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   function displayUsername() {
     const username = localStorage.getItem("username");
     if (username) {
-      const usernameField = document.getElementById("navbar-username");
-      if(usernameField)
-        usernameField.innerText = username;
+      document.getElementById("navbar-username").innerText = username;
     }
   }
 
@@ -81,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (response.ok) {
           // Store the username in localStorage
-          localStorage.setItem("username", data.username);
+          localStorage.setItem("username", result.username);
 
           // Redirect to the game page
           window.location.href = "gamepage.html";
@@ -99,12 +97,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Flag Quiz Button Handling
-  const flagQuizButton = document.querySelector(".bi-flag-fill")?.parentNode;
-  if (flagQuizButton) {
-    flagQuizButton.addEventListener("click", () => {
-      window.location.href = "quizpage.html"; // Redirect to quiz page
-    });
-  } else {
-    console.error("Flag Quiz Button Not Found");
-  }
+  // const flagQuizButton = document.querySelector(".bi-flag-fill")?.parentNode;
+  // if (flagQuizButton) {
+  //   flagQuizButton.addEventListener("click", () => {
+  //     window.location.href = "quizpage.html"; // Redirect to quiz page
+  //   });
+  // } else {
+  //   console.error("Flag Quiz Button Not Found");
+  // }
 });

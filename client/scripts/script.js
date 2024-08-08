@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const BASE_URL = config.API_URL;
 
+  // Function to display the username in the navigation bar
+  function displayUsername() {
+    const username = localStorage.getItem("username");
+    if (username) {
+      document.getElementById("navbar-username").innerText = username;
+    }
+  }
+
+  // Call displayUsername to ensure username is displayed on page load
+  displayUsername();
+
   // Registration Form Handling
   const registerForm = document.querySelector("#register-modal form");
   if (registerForm) {
@@ -25,10 +36,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log("Response result:", result); // Log the response result
 
         if (response.ok) {
-          // Show success alert instead of redirecting
           alert("Registration Successful!");
         } else {
-          // Handle registration errors
           console.error(
             `Registration failed: ${result.error || result.message}`
           );
@@ -43,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Register form not found");
   }
 
-  // Login Form Handling (unchanged)
+  // Login Form Handling
   const loginForm = document.querySelector("#login-modal form");
   if (loginForm) {
     loginForm.addEventListener("submit", async (event) => {
@@ -69,9 +78,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log("Response result:", result); // Log response result
 
         if (response.ok) {
+          // Store the username in localStorage
+          localStorage.setItem("username", result.username);
+
+          // Redirect to the game page
           window.location.href = "gamepage.html";
         } else {
-          // Handle login errors
           console.error(`Login failed: ${result.error || result.message}`);
           alert(`Login failed: ${result.error || result.message}`);
         }
@@ -84,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Login form not found");
   }
 
-  // Flag Quiz Button Handling (unchanged)
+  // Flag Quiz Button Handling
   const flagQuizButton = document.querySelector(".bi-flag-fill")?.parentNode;
   if (flagQuizButton) {
     flagQuizButton.addEventListener("click", () => {

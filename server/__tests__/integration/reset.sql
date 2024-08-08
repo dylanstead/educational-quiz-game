@@ -14,14 +14,14 @@ CREATE TABLE userregistration (
     FOREIGN KEY (id) REFERENCES userdetail (id) ON DELETE CASCADE
 );
 CREATE TABLE userscores (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL,
+    score_id SERIAL PRIMARY KEY,
+    id INTEGER NOT NULL,
     score INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES userdetail (id) ON DELETE CASCADE
+    FOREIGN KEY (id) REFERENCES userdetail (id) ON DELETE CASCADE
 );
 
 -- Optionally, insert some initial data
 INSERT INTO userdetail (username, password) VALUES ('testuser', 'password');
 INSERT INTO userregistration (id, email) VALUES ((SELECT id FROM userdetail WHERE username='testuser'), 'testuser@example.com');
-INSERT INTO scores (user_id, score) VALUES ((SELECT id FROM userdetail WHERE username='testuser'), 100);
+INSERT INTO scores (score_id, score) VALUES ((SELECT id FROM userdetail WHERE username='testuser'), 100);

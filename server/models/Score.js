@@ -8,7 +8,7 @@ class Score {
   static async sendScore(data) {
     const {id, score} = data;
     try {
-      const response = await db.query("INSERT INTO userScore (id, score) VALUES ($1, $2) RETURNING id", [id, score]);
+      const response = await db.query("INSERT INTO userScore (score) VALUES ($1) RETURNING id", [score]);
       const newScore = response.rows[0].id
       return new Score({id, score})
     } catch (err) {

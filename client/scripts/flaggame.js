@@ -38,11 +38,8 @@ function displayRoundCount() {
 
 function displayFlagAndAnswers() {
   const region = "Europe";
-  const filteredCountries = countries.filter(
-    (country) => country.region === region
-  );
-  currentCountry =
-    filteredCountries[Math.floor(Math.random() * filteredCountries.length)];
+  const filteredCountries = countries.filter((country) => country.region === region);
+  currentCountry = filteredCountries[Math.floor(Math.random() * filteredCountries.length)];
 
   const flagImage = document.querySelector(".card-img-top");
   flagImage.src = currentCountry.flags.svg;
@@ -55,9 +52,7 @@ function displayFlagAndAnswers() {
     .sort(() => 0.5 - Math.random())
     .slice(0, 3);
 
-  const allAnswers = [currentCountry, ...incorrectAnswers].sort(
-    () => 0.5 - Math.random()
-  );
+  const allAnswers = [currentCountry, ...incorrectAnswers].sort(() => 0.5 - Math.random());
 
   answerButtons.forEach((button, index) => {
     button.textContent = allAnswers[index].name.common;

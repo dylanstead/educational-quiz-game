@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   function displayUsername() {
     const username = localStorage.getItem("username");
     if (username) {
-      document.getElementById("navbar-username").innerText = username;
+      const usernameField = document.getElementById("navbar-username");
+      if(usernameField)
+        usernameField.innerText = username;
     }
   }
 

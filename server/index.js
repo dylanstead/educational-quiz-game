@@ -18,7 +18,7 @@ const app = require("./app");
 
 const isProduction = process.env.NODE_ENV === "production";
 
-const port = isProduction ? process.env.PROD_PORT : process.env.PORT;
+const port = process.env.PROD_PORT || process.env.PORT || 3000;
 const backendUrl = isProduction
   ? process.env.PROD_BACKEND_URL
   : process.env.BACKEND_URL;

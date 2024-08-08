@@ -97,12 +97,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Flag Quiz Button Handling
-  // const flagQuizButton = document.querySelector(".bi-flag-fill")?.parentNode;
-  // if (flagQuizButton) {
-  //   flagQuizButton.addEventListener("click", () => {
-  //     window.location.href = "quizpage.html"; // Redirect to quiz page
-  //   });
-  // } else {
-  //   console.error("Flag Quiz Button Not Found");
-  // }
+  const flagQuizButton = document.querySelector(".bi-flag-fill")?.parentNode;
+  if (flagQuizButton) {
+    flagQuizButton.addEventListener("click", () => {
+      window.location.href = "quizpage.html"; // Redirect to quiz page
+    });
+  } else {
+    console.error("Flag Quiz Button Not Found");
+  }
 });

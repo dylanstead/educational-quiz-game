@@ -36,8 +36,8 @@ body {
 .result-card {
     width: 25rem;
     border: 1px solid #ddd;
-    border-radius: 0.25rem;
-    background-color: #f0e10a;
+    border-radius: 20px;
+    background-color: hsl(56, 92%, 49%,0.8);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 100px;
     text-align: center;
@@ -53,18 +53,21 @@ body {
 }
 
 .character-animation {
-    margin: 20px 0;
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
+    width: 150px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    overflow: hidden;
+    margin: 0 auto; /* Hide any overflow */
     position: relative;
 }
 
 .dancing-character {
     width: 100%;
     height: 100%;
+    object-fit: contain; /* Ensure the image fits within the container */
+    display: block;
     border: none;
 }
+
 
 .score-text {
     font-family: 'Piedra';

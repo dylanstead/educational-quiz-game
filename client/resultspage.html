@@ -12,19 +12,23 @@
 </head>
 <body>
     <div class="background2"></div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning p-2 text-dark bg-opacity-75 shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning p-2 text-dark bg-opacity-100 shadow-sm fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand me-5 ml-4 fw-bold fs-3 h-font" href="#">
-                <img src="./images/LOGO.svg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
-                CountryQuiz Kids
-            </a>
+          <a class="navbar-brand me-5 ml-4 fw-bold fs-3 h-font" href="#">
+            <img src="./images/LOGO.svg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+            CountryQuiz Kids
+          </a>
+          <div class="d-flex align-items-center ms-auto">
+            <a class="username me-3">Username</a>
+            <a class="logout btn btn-outline-dark">Logout</a>
+          </div>
         </div>
-    </nav>
+      </nav>
     <div class="card result-card">
         <h5 class="card-header text-center">Quiz Results</h5>
         <div class="card-body text-center">
             <div class="character-animation">
-                <iframe src="./images/resultsDancing.gif" alt="Dancing Character" class="dancing-character"></iframe>
+                <img src="./images/resultsDancing.gif" alt="Dancing Character" class="dancing-character">
             </div>
             <p class="score-text">Your Score</p>
             <p class="score-value"></p> <!-- Score will be displayed here -->
@@ -38,7 +42,7 @@
             
         </div>
     </div>
-
+    <script src="./scripts/logout.js"></script>
     <script src="./scripts/results.js"></script>
     <script src="./scripts/config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

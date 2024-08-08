@@ -5,6 +5,11 @@ require("dotenv").config();
 const resetSQL = fs.readFileSync(__dirname + "/reset.sql").toString();
 
 const resetTestDB = async () => {
+  const resetSQL = `
+    DROP SCHEMA public CASCADE;
+    CREATE SCHEMA public;
+  `;
+
   try {
     const db = new Pool({
       connectionString: process.env.DB_URL,

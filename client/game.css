@@ -70,9 +70,9 @@ html {
 .home-content {
   max-width: 600px;
   width: 100%;
-  background-color: #f0e10a; /* Card background color */
+  background-color: hsl(56, 92%, 49%,0.8); /* Card background color */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 3.5rem;
   padding: 20px;
 }
 
@@ -102,4 +102,11 @@ html {
 
 .start-btn:hover {
   background-color: #04ecf4;
+}
+
+.custom-button {
+  border: 2px solid #000000; 
+  font-weight: bold; 
+  color: #000000; 
+  border-radius: 15px;
 }

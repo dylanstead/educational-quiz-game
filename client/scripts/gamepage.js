@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const flagQuizBtn = document.querySelector(".start-btn:nth-child(2)");
-  const languageQuizBtn = document.querySelector(".start-btn:nth-child(3)");
-  const mapQuizBtn = document.querySelector(".start-btn:nth-child(4)");
+  const flagQuizBtn = document.querySelector(".start-btn:nth-child(1)");
+  const languageQuizBtn = document.querySelector(".start-btn:nth-child(2)");
+  const mapQuizBtn = document.querySelector(".start-btn:nth-child(3)");
 
   flagQuizBtn.addEventListener("click", function () {
     window.location.href = "flaggame.html";
@@ -15,3 +15,4 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "mapgame.html";
   });
 });
+

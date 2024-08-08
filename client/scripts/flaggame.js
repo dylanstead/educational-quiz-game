@@ -1,26 +1,26 @@
-let countries = [];
-let currentCountry = null;
-let score = 0;
-let round = 0;
-const totalRounds = 5;
-let firstAttempt = true;
+export let countries = [];
+export let currentCountry = null;
+export let score = 0;
+export let round = 0;
+export const totalRounds = 5;
+export let firstAttempt = true;
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchCountries();
 });
 
-async function fetchCountries() {
+export async function fetchCountries() {
   const response = await fetch("https://restcountries.com/v3.1/all");
   const data = await response.json();
   countries = data;
   startGame();
 }
 
-function startGame() {
+export function startGame() {
   nextRound();
 }
 
-function nextRound() {
+export function nextRound() {
   if (round < totalRounds) {
     round++;
     firstAttempt = true;
@@ -31,12 +31,12 @@ function nextRound() {
   }
 }
 
-function displayRoundCount() {
+export function displayRoundCount() {
   const roundCountElement = document.getElementById("round-count");
   roundCountElement.textContent = `Round: ${round} / ${totalRounds}`;
 }
 
-function displayFlagAndAnswers() {
+export function displayFlagAndAnswers() {
   const region = "Europe";
   const filteredCountries = countries.filter(
     (country) => country.region === region
@@ -66,7 +66,7 @@ function displayFlagAndAnswers() {
   });
 }
 
-function checkAnswer(selectedButton) {
+export function checkAnswer(selectedButton) {
   const selectedAnswer = selectedButton.textContent;
   const correctAnswer = currentCountry.name.common;
 
@@ -91,7 +91,7 @@ function checkAnswer(selectedButton) {
   setTimeout(nextRound, 1000); // Proceed to the next round after a delay
 }
 
-function displayScore() {
+export function displayScore() {
   // Store the score and total rounds in localStorage
   localStorage.setItem("quizScore", score);
   localStorage.setItem("totalRounds", totalRounds);

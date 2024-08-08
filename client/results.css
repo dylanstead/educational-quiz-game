@@ -36,8 +36,8 @@ body {
 .result-card {
     width: 25rem;
     border: 1px solid #ddd;
-    border-radius: 0.25rem;
-    background-color: #f0e10a;
+    border-radius: 20px;
+    background-color: hsl(56, 92%, 49%,0.8);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 100px;
     text-align: center;

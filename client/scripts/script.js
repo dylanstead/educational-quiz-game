@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (response.ok) {
           // Store the username in localStorage
-          localStorage.setItem("username", result.username);
+          localStorage.setItem("username", data.username);
 
           // Redirect to the game page
           window.location.href = "gamepage.html";
